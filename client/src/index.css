@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f9fafb; /* Light slate gray/white */
+    color: #111827; /* Dark text */
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+    color: #111827;
+  }
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(16, 185, 129, 0.3); /* Emerald */
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(16, 185, 129, 0.6);
+}
+
+/* Airbnb & Booking.com UI Utilities */
+@layer utilities {
+  .clean-panel {
+    background: #ffffff;
+    border: 1px solid #e5e7eb; /* border-gray-200 */
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05); /* shadow-sm/md */
+  }
+
+  .clean-card {
+    background: #ffffff;
+    border: 1px solid #f3f4f6; /* border-gray-100 */
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1); /* shadow */
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .clean-card:hover {
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05); /* shadow-md */
+    transform: translateY(-2px);
+  }
+
+  .text-glow-emerald {
+    text-shadow: 0 0 10px rgba(16, 185, 129, 0.15);
+  }
+}
