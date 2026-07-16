@@ -13,6 +13,8 @@ import CreateTrip from './pages/CreateTrip';
 import EditTrip from './pages/EditTrip';
 import ViewTrip from './pages/ViewTrip';
 
+
+
 function Home() {
   const [backendStatus, setBackendStatus] = useState('checking');
   const [dbStatus, setDbStatus] = useState('checking');
@@ -22,7 +24,7 @@ function Home() {
   useEffect(() => {
     const checkHealth = async () => {
       try {
-        const response = await axios.get('/api/health');
+       const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/health`);
         if (response.data && response.data.status === 'UP') {
           setBackendStatus('online');
           setDbStatus(response.data.database === 'connected' ? 'connected' : 'disconnected');
