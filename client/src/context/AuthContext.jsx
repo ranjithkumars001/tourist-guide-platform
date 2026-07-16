@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }) => {
       if (token) {
         setAxiosHeader(token);
         try {
-          const response = await axios.get('/api/auth/me');
+          const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/auth/me`);
           if (response.data && response.data.success) {
             setUser(response.data.data);
           } else {
@@ -48,7 +48,7 @@ export const AuthProvider = ({ children }) => {
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.post('/api/auth/login', { email, password });
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/login`, { email, password });
       if (response.data && response.data.success) {
         const { token, ...userData } = response.data.data;
         localStorage.setItem('token', token);
@@ -70,7 +70,7 @@ export const AuthProvider = ({ children }) => {
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.post('/api/auth/register', { username, email, password });
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/register`, { username, email, password });
       if (response.data && response.data.success) {
         const { token, ...userData } = response.data.data;
         localStorage.setItem('token', token);
